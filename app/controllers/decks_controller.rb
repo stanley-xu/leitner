@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  http_basic_authenticate_with name: ENV['DEMO_USER'], password: ENV['DEMO_PASS']
+  
   def index
     @decks = Deck.all
     @deck = Deck.new # for the new card form
