@@ -1,0 +1,32 @@
+<%# - this is a 'form for a deck' (deck is the representative object)
+    - block arg is the FormBuilder object
+
+    RAILS MAGIC on url param:
+    - you can pass instance vars (@deck) or symbol (:deck)
+    - passing @deck makes RAILS guess the route by checking the RESTful
+        uri prefixes
+    - benefits for @deck:
+        1) no need to pass `url: deck_path(@deck)`--this is guessed
+        2) no need to pass `method: :patch` (on edit actions)--also guessed %>
+<%= form_for @deck do |f| %>
+    <div class="modal-content" style="padding-bottom: 10px;">
+        <h4 style="padding-bottom: 15px">Deck Name</h4>
+
+        <div class="input-field col s12">
+            <%= f.text_field :name, value: @deck.name, class: 'validate', required: true %>
+            <%= f.label :name, "Deck Name", class: 'active' %>
+            <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <%= f.submit "Save", class: 'waves-effect waves-light btn-large         modal-close', style: "margin-right: 27px" %>
+    </div>
+ 
+    <%# form submissions are POST requests
+      - `rake routes` will reveal that rails (by default),
+        routes the decks POST request to the `DeckController`'s create method
+      - the backend receives POST requests' parameters
+            use the `params` built-in to extract it (it's a hash)
+        %>
+ 
+<% end %>

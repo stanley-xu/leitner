@@ -1,0 +1,26 @@
+<div id="welcome_message">
+    <h1>Welcome, User</h1>
+</div>
+ 
+<div id="decks_container">
+    <div class="row">
+<%# RAILS MAGIC: rendering collections
+  - below is shortcut for `render partial: 'deck', collection: @decks`
+  - the partial can reference a variable called `deck`
+      (actually every partial has access to a variable of its own name) %>
+        <%= render @decks %>
+
+        <a href="#add_deck_modal" class="modal-trigger">
+            <div class="card col s12 m3 hoverable" style="border-radius: 5px; height: 300px; padding-right: 15px">
+                <div class="card-image valign-wrapper" style="height: 220px; justify-content: center;">
+                    <i class="material-icons" style="font-size: 130px; color: lightgrey;">add</i>       
+                </div>
+                <div class= "card-content center-align"> Add a Deck </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div id="add_deck_modal" class="modal" style="height: 250px; border-radius: 10px;">
+    <%= render 'form' %>
+</div>

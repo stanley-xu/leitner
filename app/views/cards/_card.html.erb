@@ -1,0 +1,29 @@
+<%# NOTE: to specify the specific nested resource,
+  - we need to pass:
+    1) the parent (card.deck) and
+    2) the child (card) %>
+<%# alternative syntax requires specifying url (via the array),
+    and the method:
+    `link_to 'Edit', [card.deck, card], method: :patch`
+  (AGAIN we see 2 approaches: rails helpers vs RESTful (url + method)) %>
+
+<div class="card col s12 m3" style="border-radius: 5px; height: 300px">
+  <div class="card-content" style="height: 245px; overflow-y: scroll; overflow-x: hidden">
+    <p><b>Q:</b> <%= card.question %></p>
+    <p><b>A:</b> <%= card.answer %></p>
+  </div>
+  <div class="card-action">
+    <%# appending the card id here is important for differentiating each
+        modal from each other (otherwise, we'd only be able to trigger one) %>
+    <a href="#edit_card_modal_<%= card.id %>" class="modal-trigger">Edit</a>
+    <%= link_to 'Delete', 
+        [card.deck, card],
+        method: :delete,
+          data: { confirm: 'Are you sure?' } 
+        %>
+  </div>
+
+  <div id="edit_card_modal_<%= card.id %>" class="edit_card modal" style="height: 250px; border-radius: 10px;">
+    <%= render 'cards/form', local_assigns %>
+  </div>
+</div>

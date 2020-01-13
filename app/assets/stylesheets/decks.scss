@@ -1,0 +1,88 @@
+// Place all the styles related to the Decks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background-color: #163466;
+}
+#welcome_message {
+	padding-left: 50px;
+	color: white;
+}
+
+#decks_container {
+	background-color: white;
+	border-radius: 7px;
+	margin: 50px;
+	padding: 20px 30px;
+}
+
+/* Style the form */
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.modal { 
+  border-radius: 10px !important;
+}
+
+#add_deck_modal {
+  height: 280px;
+}
+
+#add_card_modal {
+  height: 320px;
+}
+
+#edit_deck_name_modal {
+  height: 290px;
+}
+
+input[type=submit] {
+  color: white;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}

@@ -1,0 +1,16 @@
+<div class="card col s12 m3" style="border-radius: 5px; height: 300px">
+  	<div class="card-image center-align">
+  		<%= link_to deck_path(deck), method: :delete,
+   		    data: { confirm: 'Are you sure?' } do %>
+   			<i class="material-icons small blue-grey-text text-lighten-4 right">delete</i>
+   		<% end %>
+      	Deck Stats holder        	
+    </div>
+    <div class=	"card-content">
+      <p><%= deck.name %></p>
+    </div>
+    <div class="card-action">
+      <%= link_to 'Edit', edit_deck_path(deck) %>
+      <%= link_to 'Start', quiz_deck_path(deck) %>
+    </div>
+</div>

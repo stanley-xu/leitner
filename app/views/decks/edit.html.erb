@@ -1,0 +1,32 @@
+<div id="welcome_message">
+    <h1><%= @deck.name %>
+	    <a href="#edit_deck_name_modal" class="modal-trigger">
+	    	<i class="material-icons medium white-text">edit</i>
+	    </a>
+	</h1>
+</div>
+ 
+<div id="decks_container">
+    <div class="row">
+        <%= render @deck.cards %>
+
+        <a href="#add_card_modal" class="modal-trigger">
+            <div class="card col s12 m3 hoverable" style="border-radius: 5px; height: 300px; padding-right: 15px">
+                <div class="card-image valign-wrapper" style="height: 220px; justify-content: center;">
+                    <i class="material-icons lightgrey-text" style="font-size: 130px; color: lightgrey">add</i>
+                </div>
+                <div class= "card-content center-align"> Add a Card </div>
+            </div>
+        </a>
+    </div>
+    <%= link_to 'Back', decks_path, class: 'btn-large'%>
+    <%= link_to 'Start Quiz', quiz_deck_path(@deck), class: 'btn-large'%>
+</div>
+
+<div id="add_card_modal" class="modal">
+    <%= render 'cards/new_form' %>
+</div>
+
+<div id="edit_deck_name_modal" class="modal" style="height: 250px; border-radius: 10px;">
+	<%= render 'form' %>
+</div>

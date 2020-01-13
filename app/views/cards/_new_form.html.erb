@@ -1,0 +1,20 @@
+<%# TODO: can we DRY this up? (see cards/_form.html.erb and in-place editing articles%>
+<%= form_for [@deck, @deck.cards.build] do |f| %>
+	<div class="modal-content" style="padding-bottom: 10px;">
+    	<h4 style="padding-bottom: 15px">Card</h4>
+
+    	<div class="input-field col s12">
+            <%= f.text_field(:question) %>
+            <%= f.label(:question, "Question") %>
+        </div>
+
+        <div class="input-field col s12">
+            <%= f.text_field(:answer) %>
+            <%= f.label(:answer, "Answer") %>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <%= f.submit("Save", :class => 'waves-effect waves-light btn-large modal-close', :style => "margin-right: 27px") %>
+    </div>
+<% end %>

@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require decks
  */
+ @import "materialize";
+ @import "materialize/extras/nouislider";
